@@ -46,6 +46,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="fBaoCao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fBaoCao.Designer.cs">
+      <DependentUpon>fBaoCao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fHocSinh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fHocSinh.Designer.cs">
+      <DependentUpon>fHocSinh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fLop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fLop.Designer.cs">
+      <DependentUpon>fLop.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
