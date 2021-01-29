@@ -5,10 +5,6 @@ VisualStudioVersion = 15.0.28307.1169
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuanLyHocSinh", "QuanLyHocSinh\QuanLyHocSinh.csproj", "{544FE441-8386-408F-A727-6ABA8C238FBB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAO", "DAO\DAO.csproj", "{521C4930-3C3C-41EF-AE24-13FE742D1737}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BUS", "BUS\BUS.csproj", "{4ABA241D-3F8C-4AAC-BC16-739690BD4F34}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,14 +15,6 @@ Global
 		{544FE441-8386-408F-A727-6ABA8C238FBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{544FE441-8386-408F-A727-6ABA8C238FBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{544FE441-8386-408F-A727-6ABA8C238FBB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{521C4930-3C3C-41EF-AE24-13FE742D1737}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{521C4930-3C3C-41EF-AE24-13FE742D1737}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{521C4930-3C3C-41EF-AE24-13FE742D1737}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{521C4930-3C3C-41EF-AE24-13FE742D1737}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4ABA241D-3F8C-4AAC-BC16-739690BD4F34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4ABA241D-3F8C-4AAC-BC16-739690BD4F34}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4ABA241D-3F8C-4AAC-BC16-739690BD4F34}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4ABA241D-3F8C-4AAC-BC16-739690BD4F34}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
