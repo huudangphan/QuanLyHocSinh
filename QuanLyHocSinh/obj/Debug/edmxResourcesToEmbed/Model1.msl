@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="QuanLyHocSinhModelStoreContainer" CdmEntityContainer="QuanLyHocSinhEntities">
+    <EntitySetMapping Name="BangDiems">
+      <EntityTypeMapping TypeName="QuanLyHocSinhModel.BangDiem">
+        <MappingFragment StoreEntitySet="BangDiem">
+          <ScalarProperty Name="idbangDiem" ColumnName="idbangDiem" />
+          <ScalarProperty Name="idmonHoc" ColumnName="idmonHoc" />
+          <ScalarProperty Name="idhocSinh" ColumnName="idhocSinh" />
+          <ScalarProperty Name="diem" ColumnName="diem" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GiaoViens">
+      <EntityTypeMapping TypeName="QuanLyHocSinhModel.GiaoVien">
+        <MappingFragment StoreEntitySet="GiaoVien">
+          <ScalarProperty Name="idgiaoVien" ColumnName="idgiaoVien" />
+          <ScalarProperty Name="tengiaoVien" ColumnName="tengiaoVien" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HocSinhs">
+      <EntityTypeMapping TypeName="QuanLyHocSinhModel.HocSinh">
+        <MappingFragment StoreEntitySet="HocSinh">
+          <ScalarProperty Name="idHocSinh" ColumnName="idHocSinh" />
+          <ScalarProperty Name="ten" ColumnName="ten" />
+          <ScalarProperty Name="ngaySinh" ColumnName="ngaySinh" />
+          <ScalarProperty Name="diachi" ColumnName="diachi" />
+          <ScalarProperty Name="sdt" ColumnName="sdt" />
+          <ScalarProperty Name="lop" ColumnName="lop" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LopHocs">
+      <EntityTypeMapping TypeName="QuanLyHocSinhModel.LopHoc">
+        <MappingFragment StoreEntitySet="LopHoc">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="idhocSinh" ColumnName="idhocSinh" />
+          <ScalarProperty Name="tenlop" ColumnName="tenlop" />
+          <ScalarProperty Name="idchuNhiem" ColumnName="idchuNhiem" />
+          <ScalarProperty Name="nienkhoa" ColumnName="nienkhoa" />
+          <ScalarProperty Name="hocki" ColumnName="hocki" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MonHocs">
+      <EntityTypeMapping TypeName="QuanLyHocSinhModel.MonHoc">
+        <MappingFragment StoreEntitySet="MonHoc">
+          <ScalarProperty Name="idmonHoc" ColumnName="idmonHoc" />
+          <ScalarProperty Name="tenMonHoc" ColumnName="tenMonHoc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,332 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="QuanLyHocSinhModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="BangDiem">
+          <Key>
+            <PropertyRef Name="idbangDiem" />
+          </Key>
+          <Property Name="idbangDiem" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idmonHoc" Type="nchar" MaxLength="10" />
+          <Property Name="idhocSinh" Type="int" />
+          <Property Name="diem" Type="int" />
+        </EntityType>
+        <EntityType Name="GiaoVien">
+          <Key>
+            <PropertyRef Name="idgiaoVien" />
+          </Key>
+          <Property Name="idgiaoVien" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tengiaoVien" Type="nchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="HocSinh">
+          <Key>
+            <PropertyRef Name="idHocSinh" />
+          </Key>
+          <Property Name="idHocSinh" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ten" Type="nchar" MaxLength="50" />
+          <Property Name="ngaySinh" Type="date" />
+          <Property Name="diachi" Type="nvarchar" MaxLength="50" />
+          <Property Name="sdt" Type="int" />
+          <Property Name="lop" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="LopHoc">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idhocSinh" Type="int" />
+          <Property Name="tenlop" Type="nvarchar" MaxLength="50" />
+          <Property Name="idchuNhiem" Type="int" />
+          <Property Name="nienkhoa" Type="nvarchar" MaxLength="50" />
+          <Property Name="hocki" Type="int" />
+        </EntityType>
+        <EntityType Name="MonHoc">
+          <Key>
+            <PropertyRef Name="idmonHoc" />
+          </Key>
+          <Property Name="idmonHoc" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="tenMonHoc" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <Association Name="FK_BangDiem_HocSinh">
+          <End Role="HocSinh" Type="Self.HocSinh" Multiplicity="0..1" />
+          <End Role="BangDiem" Type="Self.BangDiem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HocSinh">
+              <PropertyRef Name="idHocSinh" />
+            </Principal>
+            <Dependent Role="BangDiem">
+              <PropertyRef Name="idhocSinh" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BangDiem_MonHoc">
+          <End Role="MonHoc" Type="Self.MonHoc" Multiplicity="0..1" />
+          <End Role="BangDiem" Type="Self.BangDiem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MonHoc">
+              <PropertyRef Name="idmonHoc" />
+            </Principal>
+            <Dependent Role="BangDiem">
+              <PropertyRef Name="idmonHoc" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LopHoc_GiaoVien">
+          <End Role="GiaoVien" Type="Self.GiaoVien" Multiplicity="0..1" />
+          <End Role="LopHoc" Type="Self.LopHoc" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GiaoVien">
+              <PropertyRef Name="idgiaoVien" />
+            </Principal>
+            <Dependent Role="LopHoc">
+              <PropertyRef Name="idchuNhiem" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LopHoc_HocSinh">
+          <End Role="HocSinh" Type="Self.HocSinh" Multiplicity="0..1" />
+          <End Role="LopHoc" Type="Self.LopHoc" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HocSinh">
+              <PropertyRef Name="idHocSinh" />
+            </Principal>
+            <Dependent Role="LopHoc">
+              <PropertyRef Name="idhocSinh" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="QuanLyHocSinhModelStoreContainer">
+          <EntitySet Name="BangDiem" EntityType="Self.BangDiem" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GiaoVien" EntityType="Self.GiaoVien" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HocSinh" EntityType="Self.HocSinh" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LopHoc" EntityType="Self.LopHoc" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MonHoc" EntityType="Self.MonHoc" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_BangDiem_HocSinh" Association="Self.FK_BangDiem_HocSinh">
+            <End Role="HocSinh" EntitySet="HocSinh" />
+            <End Role="BangDiem" EntitySet="BangDiem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BangDiem_MonHoc" Association="Self.FK_BangDiem_MonHoc">
+            <End Role="MonHoc" EntitySet="MonHoc" />
+            <End Role="BangDiem" EntitySet="BangDiem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LopHoc_GiaoVien" Association="Self.FK_LopHoc_GiaoVien">
+            <End Role="GiaoVien" EntitySet="GiaoVien" />
+            <End Role="LopHoc" EntitySet="LopHoc" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LopHoc_HocSinh" Association="Self.FK_LopHoc_HocSinh">
+            <End Role="HocSinh" EntitySet="HocSinh" />
+            <End Role="LopHoc" EntitySet="LopHoc" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="QuanLyHocSinhModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="BangDiem">
+          <Key>
+            <PropertyRef Name="idbangDiem" />
+          </Key>
+          <Property Name="idbangDiem" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idmonHoc" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="idhocSinh" Type="Int32" />
+          <Property Name="diem" Type="Int32" />
+          <NavigationProperty Name="HocSinh" Relationship="Self.FK_BangDiem_HocSinh" FromRole="BangDiem" ToRole="HocSinh" />
+          <NavigationProperty Name="MonHoc" Relationship="Self.FK_BangDiem_MonHoc" FromRole="BangDiem" ToRole="MonHoc" />
+        </EntityType>
+        <EntityType Name="GiaoVien">
+          <Key>
+            <PropertyRef Name="idgiaoVien" />
+          </Key>
+          <Property Name="idgiaoVien" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tengiaoVien" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="LopHocs" Relationship="Self.FK_LopHoc_GiaoVien" FromRole="GiaoVien" ToRole="LopHoc" />
+        </EntityType>
+        <EntityType Name="HocSinh">
+          <Key>
+            <PropertyRef Name="idHocSinh" />
+          </Key>
+          <Property Name="idHocSinh" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ten" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="ngaySinh" Type="DateTime" Precision="0" />
+          <Property Name="diachi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="sdt" Type="Int32" />
+          <Property Name="lop" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="BangDiems" Relationship="Self.FK_BangDiem_HocSinh" FromRole="HocSinh" ToRole="BangDiem" />
+          <NavigationProperty Name="LopHocs" Relationship="Self.FK_LopHoc_HocSinh" FromRole="HocSinh" ToRole="LopHoc" />
+        </EntityType>
+        <EntityType Name="LopHoc">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idhocSinh" Type="Int32" />
+          <Property Name="tenlop" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="idchuNhiem" Type="Int32" />
+          <Property Name="nienkhoa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="hocki" Type="Int32" />
+          <NavigationProperty Name="GiaoVien" Relationship="Self.FK_LopHoc_GiaoVien" FromRole="LopHoc" ToRole="GiaoVien" />
+          <NavigationProperty Name="HocSinh" Relationship="Self.FK_LopHoc_HocSinh" FromRole="LopHoc" ToRole="HocSinh" />
+        </EntityType>
+        <EntityType Name="MonHoc">
+          <Key>
+            <PropertyRef Name="idmonHoc" />
+          </Key>
+          <Property Name="idmonHoc" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="tenMonHoc" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="BangDiems" Relationship="Self.FK_BangDiem_MonHoc" FromRole="MonHoc" ToRole="BangDiem" />
+        </EntityType>
+        <Association Name="FK_BangDiem_HocSinh">
+          <End Role="HocSinh" Type="Self.HocSinh" Multiplicity="0..1" />
+          <End Role="BangDiem" Type="Self.BangDiem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HocSinh">
+              <PropertyRef Name="idHocSinh" />
+            </Principal>
+            <Dependent Role="BangDiem">
+              <PropertyRef Name="idhocSinh" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BangDiem_MonHoc">
+          <End Role="MonHoc" Type="Self.MonHoc" Multiplicity="0..1" />
+          <End Role="BangDiem" Type="Self.BangDiem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MonHoc">
+              <PropertyRef Name="idmonHoc" />
+            </Principal>
+            <Dependent Role="BangDiem">
+              <PropertyRef Name="idmonHoc" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LopHoc_GiaoVien">
+          <End Role="GiaoVien" Type="Self.GiaoVien" Multiplicity="0..1" />
+          <End Role="LopHoc" Type="Self.LopHoc" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GiaoVien">
+              <PropertyRef Name="idgiaoVien" />
+            </Principal>
+            <Dependent Role="LopHoc">
+              <PropertyRef Name="idchuNhiem" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LopHoc_HocSinh">
+          <End Role="HocSinh" Type="Self.HocSinh" Multiplicity="0..1" />
+          <End Role="LopHoc" Type="Self.LopHoc" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HocSinh">
+              <PropertyRef Name="idHocSinh" />
+            </Principal>
+            <Dependent Role="LopHoc">
+              <PropertyRef Name="idhocSinh" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="QuanLyHocSinhEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BangDiems" EntityType="Self.BangDiem" />
+          <EntitySet Name="GiaoViens" EntityType="Self.GiaoVien" />
+          <EntitySet Name="HocSinhs" EntityType="Self.HocSinh" />
+          <EntitySet Name="LopHocs" EntityType="Self.LopHoc" />
+          <EntitySet Name="MonHocs" EntityType="Self.MonHoc" />
+          <AssociationSet Name="FK_BangDiem_HocSinh" Association="Self.FK_BangDiem_HocSinh">
+            <End Role="HocSinh" EntitySet="HocSinhs" />
+            <End Role="BangDiem" EntitySet="BangDiems" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BangDiem_MonHoc" Association="Self.FK_BangDiem_MonHoc">
+            <End Role="MonHoc" EntitySet="MonHocs" />
+            <End Role="BangDiem" EntitySet="BangDiems" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LopHoc_GiaoVien" Association="Self.FK_LopHoc_GiaoVien">
+            <End Role="GiaoVien" EntitySet="GiaoViens" />
+            <End Role="LopHoc" EntitySet="LopHocs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LopHoc_HocSinh" Association="Self.FK_LopHoc_HocSinh">
+            <End Role="HocSinh" EntitySet="HocSinhs" />
+            <End Role="LopHoc" EntitySet="LopHocs" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="QuanLyHocSinhModelStoreContainer" CdmEntityContainer="QuanLyHocSinhEntities">
+          <EntitySetMapping Name="BangDiems">
+            <EntityTypeMapping TypeName="QuanLyHocSinhModel.BangDiem">
+              <MappingFragment StoreEntitySet="BangDiem">
+                <ScalarProperty Name="idbangDiem" ColumnName="idbangDiem" />
+                <ScalarProperty Name="idmonHoc" ColumnName="idmonHoc" />
+                <ScalarProperty Name="idhocSinh" ColumnName="idhocSinh" />
+                <ScalarProperty Name="diem" ColumnName="diem" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GiaoViens">
+            <EntityTypeMapping TypeName="QuanLyHocSinhModel.GiaoVien">
+              <MappingFragment StoreEntitySet="GiaoVien">
+                <ScalarProperty Name="idgiaoVien" ColumnName="idgiaoVien" />
+                <ScalarProperty Name="tengiaoVien" ColumnName="tengiaoVien" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HocSinhs">
+            <EntityTypeMapping TypeName="QuanLyHocSinhModel.HocSinh">
+              <MappingFragment StoreEntitySet="HocSinh">
+                <ScalarProperty Name="idHocSinh" ColumnName="idHocSinh" />
+                <ScalarProperty Name="ten" ColumnName="ten" />
+                <ScalarProperty Name="ngaySinh" ColumnName="ngaySinh" />
+                <ScalarProperty Name="diachi" ColumnName="diachi" />
+                <ScalarProperty Name="sdt" ColumnName="sdt" />
+                <ScalarProperty Name="lop" ColumnName="lop" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LopHocs">
+            <EntityTypeMapping TypeName="QuanLyHocSinhModel.LopHoc">
+              <MappingFragment StoreEntitySet="LopHoc">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="idhocSinh" ColumnName="idhocSinh" />
+                <ScalarProperty Name="tenlop" ColumnName="tenlop" />
+                <ScalarProperty Name="idchuNhiem" ColumnName="idchuNhiem" />
+                <ScalarProperty Name="nienkhoa" ColumnName="nienkhoa" />
+                <ScalarProperty Name="hocki" ColumnName="hocki" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MonHocs">
+            <EntityTypeMapping TypeName="QuanLyHocSinhModel.MonHoc">
+              <MappingFragment StoreEntitySet="MonHoc">
+                <ScalarProperty Name="idmonHoc" ColumnName="idmonHoc" />
+                <ScalarProperty Name="tenMonHoc" ColumnName="tenMonHoc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

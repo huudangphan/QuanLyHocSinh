@@ -1,0 +1,16 @@
+E:\QuanLyHocSinh\QuanLyHocSinh\bin\Debug\QuanLyHocSinh.exe.config
+E:\QuanLyHocSinh\QuanLyHocSinh\bin\Debug\QuanLyHocSinh.exe
+E:\QuanLyHocSinh\QuanLyHocSinh\bin\Debug\QuanLyHocSinh.pdb
+E:\QuanLyHocSinh\QuanLyHocSinh\bin\Debug\EntityFramework.dll
+E:\QuanLyHocSinh\QuanLyHocSinh\bin\Debug\EntityFramework.SqlServer.dll
+E:\QuanLyHocSinh\QuanLyHocSinh\bin\Debug\EntityFramework.xml
+E:\QuanLyHocSinh\QuanLyHocSinh\bin\Debug\EntityFramework.SqlServer.xml
+E:\QuanLyHocSinh\QuanLyHocSinh\obj\Debug\QuanLyHocSinh.csprojAssemblyReference.cache
+E:\QuanLyHocSinh\QuanLyHocSinh\obj\Debug\QuanLyHocSinh.fHocSinh.resources
+E:\QuanLyHocSinh\QuanLyHocSinh\obj\Debug\QuanLyHocSinh.fLop.resources
+E:\QuanLyHocSinh\QuanLyHocSinh\obj\Debug\QuanLyHocSinh.Properties.Resources.resources
+E:\QuanLyHocSinh\QuanLyHocSinh\obj\Debug\QuanLyHocSinh.csproj.GenerateResource.cache
+E:\QuanLyHocSinh\QuanLyHocSinh\obj\Debug\QuanLyHocSinh.csproj.CoreCompileInputs.cache
+E:\QuanLyHocSinh\QuanLyHocSinh\obj\Debug\QuanLyHocSinh.csproj.CopyComplete
+E:\QuanLyHocSinh\QuanLyHocSinh\obj\Debug\QuanLyHocSinh.exe
+E:\QuanLyHocSinh\QuanLyHocSinh\obj\Debug\QuanLyHocSinh.pdb
