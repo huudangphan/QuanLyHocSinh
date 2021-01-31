@@ -31,9 +31,9 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.btnAdd = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
-            this.btnEdit = new System.Windows.Forms.Button();
+            this.txtchunhiem = new System.Windows.Forms.TextBox();
+            this.txthocsinh = new System.Windows.Forms.TextBox();
+            this.txtlop = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.btnTimKiem = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -42,9 +42,6 @@
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtlop = new System.Windows.Forms.TextBox();
-            this.txthocsinh = new System.Windows.Forms.TextBox();
-            this.txtchunhiem = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -55,9 +52,9 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.dataGridView1);
-            this.groupBox1.Location = new System.Drawing.Point(0, 298);
+            this.groupBox1.Location = new System.Drawing.Point(6, 213);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(305, 443);
+            this.groupBox1.Size = new System.Drawing.Size(305, 461);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Lớp";
@@ -72,7 +69,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(287, 416);
+            this.dataGridView1.Size = new System.Drawing.Size(287, 437);
             this.dataGridView1.TabIndex = 0;
             // 
             // groupBox2
@@ -80,14 +77,11 @@
             this.groupBox2.Controls.Add(this.txtchunhiem);
             this.groupBox2.Controls.Add(this.txthocsinh);
             this.groupBox2.Controls.Add(this.txtlop);
-            this.groupBox2.Controls.Add(this.btnAdd);
-            this.groupBox2.Controls.Add(this.btnDelete);
-            this.groupBox2.Controls.Add(this.btnEdit);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.btnTimKiem);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Location = new System.Drawing.Point(12, 97);
+            this.groupBox2.Location = new System.Drawing.Point(18, 12);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(904, 195);
             this.groupBox2.TabIndex = 1;
@@ -95,32 +89,26 @@
             this.groupBox2.Text = "Thông tin";
             this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
-            // btnAdd
+            // txtchunhiem
             // 
-            this.btnAdd.Location = new System.Drawing.Point(760, 47);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(101, 45);
-            this.btnAdd.TabIndex = 9;
-            this.btnAdd.Text = "Thêm ";
-            this.btnAdd.UseVisualStyleBackColor = true;
+            this.txtchunhiem.Location = new System.Drawing.Point(176, 143);
+            this.txtchunhiem.Name = "txtchunhiem";
+            this.txtchunhiem.Size = new System.Drawing.Size(135, 22);
+            this.txtchunhiem.TabIndex = 12;
             // 
-            // btnDelete
+            // txthocsinh
             // 
-            this.btnDelete.Location = new System.Drawing.Point(760, 118);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(101, 45);
-            this.btnDelete.TabIndex = 8;
-            this.btnDelete.Text = "Xóa";
-            this.btnDelete.UseVisualStyleBackColor = true;
+            this.txthocsinh.Location = new System.Drawing.Point(444, 38);
+            this.txthocsinh.Name = "txthocsinh";
+            this.txthocsinh.Size = new System.Drawing.Size(133, 22);
+            this.txthocsinh.TabIndex = 11;
             // 
-            // btnEdit
+            // txtlop
             // 
-            this.btnEdit.Location = new System.Drawing.Point(619, 118);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(101, 45);
-            this.btnEdit.TabIndex = 7;
-            this.btnEdit.Text = "Sửa";
-            this.btnEdit.UseVisualStyleBackColor = true;
+            this.txtlop.Location = new System.Drawing.Point(176, 41);
+            this.txtlop.Name = "txtlop";
+            this.txtlop.Size = new System.Drawing.Size(135, 22);
+            this.txtlop.TabIndex = 10;
             // 
             // label3
             // 
@@ -134,7 +122,7 @@
             // 
             // btnTimKiem
             // 
-            this.btnTimKiem.Location = new System.Drawing.Point(619, 47);
+            this.btnTimKiem.Location = new System.Drawing.Point(683, 41);
             this.btnTimKiem.Name = "btnTimKiem";
             this.btnTimKiem.Size = new System.Drawing.Size(101, 45);
             this.btnTimKiem.TabIndex = 6;
@@ -164,7 +152,7 @@
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.dataGridView2);
-            this.groupBox3.Location = new System.Drawing.Point(311, 298);
+            this.groupBox3.Location = new System.Drawing.Point(317, 213);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(605, 443);
             this.groupBox3.TabIndex = 2;
@@ -187,6 +175,7 @@
             this.Column1.HeaderText = "Tên lớp";
             this.Column1.MinimumWidth = 6;
             this.Column1.Name = "Column1";
+            this.Column1.Width = 75;
             // 
             // Column2
             // 
@@ -196,32 +185,11 @@
             this.Column2.Name = "Column2";
             this.Column2.Width = 110;
             // 
-            // txtlop
-            // 
-            this.txtlop.Location = new System.Drawing.Point(176, 41);
-            this.txtlop.Name = "txtlop";
-            this.txtlop.Size = new System.Drawing.Size(135, 22);
-            this.txtlop.TabIndex = 10;
-            // 
-            // txthocsinh
-            // 
-            this.txthocsinh.Location = new System.Drawing.Point(444, 38);
-            this.txthocsinh.Name = "txthocsinh";
-            this.txthocsinh.Size = new System.Drawing.Size(133, 22);
-            this.txthocsinh.TabIndex = 11;
-            // 
-            // txtchunhiem
-            // 
-            this.txtchunhiem.Location = new System.Drawing.Point(176, 143);
-            this.txtchunhiem.Name = "txtchunhiem";
-            this.txtchunhiem.Size = new System.Drawing.Size(135, 22);
-            this.txtchunhiem.TabIndex = 12;
-            // 
             // fLop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(927, 744);
+            this.ClientSize = new System.Drawing.Size(927, 702);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -248,13 +216,10 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.Button btnTimKiem;
-        private System.Windows.Forms.Button btnEdit;
-        private System.Windows.Forms.Button btnDelete;
-        private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.TextBox txtchunhiem;
         private System.Windows.Forms.TextBox txthocsinh;
         private System.Windows.Forms.TextBox txtlop;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
     }
 }
