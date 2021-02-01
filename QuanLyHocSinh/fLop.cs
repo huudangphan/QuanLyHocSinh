@@ -23,7 +23,7 @@ namespace QuanLyHocSinh
         }
         void addBinding()
         {
-            txtlophs.DataBindings.Add(new Binding("text", datagridview2.DataSource, "lop",true,DataSourceUpdateMode.Never));
+            comboBox1.DataBindings.Add(new Binding("text", datagridview2.DataSource, "lop", true, DataSourceUpdateMode.Never));
             txthocsinh.DataBindings.Add(new Binding("text", datagridview2.DataSource, "tenhs", true, DataSourceUpdateMode.Never));
             cblopcn.DataBindings.Add(new Binding("text", dataGridView1.DataSource, "tenlop", true, DataSourceUpdateMode.Never));
             txtchunhiem.DataBindings.Add(new Binding("text", dataGridView1.DataSource, "tengv", true, DataSourceUpdateMode.Never));
@@ -44,20 +44,14 @@ namespace QuanLyHocSinh
        
         void addhs()
         {
-            DateTime date = dateTimePicker1.Value;            
-           
-            try
-            {
-                hocsinh hs = new hocsinh() { tenhs = txthocsinh.Text, lop = txtlophs.Text, ngaysinh = date };
+            DateTime date = dateTimePicker1.Value;
+            string lophoc = comboBox1.Text;
+            string tenhocsinh = txthocsinh.Text;
+                      
+                hocsinh hs = new hocsinh() { tenhs =tenhocsinh, lop = lophoc, ngaysinh = date };
                 db.hocsinhs.Add(hs);
-                db.SaveChanges();
-
-                db.SaveChanges();
-            }
-            catch
-            {
-                
-            }
+                db.SaveChanges();              
+            
            
         }
         void addlop()
@@ -99,11 +93,6 @@ namespace QuanLyHocSinh
 
         }
 
-        private void btnthemlop_Click(object sender, EventArgs e)
-        {
-            addlop();
-            loadData();
-            MessageBox.Show("Chia lop thanh cong");
-        }
+        
     }
 }

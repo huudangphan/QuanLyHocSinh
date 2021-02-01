@@ -30,7 +30,10 @@
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.cblopcn = new System.Windows.Forms.ComboBox();
             this.txtchunhiem = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -44,15 +47,12 @@
             this.btnTimKiem = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.datagridview2 = new System.Windows.Forms.DataGridView();
-            this.label9 = new System.Windows.Forms.Label();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.txtlophs = new System.Windows.Forms.TextBox();
-            this.cblopcn = new System.Windows.Forms.ComboBox();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label9 = new System.Windows.Forms.Label();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -84,6 +84,22 @@
             this.dataGridView1.Size = new System.Drawing.Size(330, 431);
             this.dataGridView1.TabIndex = 0;
             // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "tenlop";
+            this.Column1.HeaderText = "Tên lớp";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            this.Column1.Width = 75;
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "tengv";
+            this.Column2.HeaderText = "GVCN";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            this.Column2.Width = 125;
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.cblopcn);
@@ -96,6 +112,17 @@
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Thông tin giáo viên";
+            // 
+            // cblopcn
+            // 
+            this.cblopcn.FormattingEnabled = true;
+            this.cblopcn.Items.AddRange(new object[] {
+            "12A1",
+            "12A2"});
+            this.cblopcn.Location = new System.Drawing.Point(158, 34);
+            this.cblopcn.Name = "cblopcn";
+            this.cblopcn.Size = new System.Drawing.Size(135, 24);
+            this.cblopcn.TabIndex = 27;
             // 
             // txtchunhiem
             // 
@@ -223,69 +250,6 @@
             this.datagridview2.Size = new System.Drawing.Size(582, 431);
             this.datagridview2.TabIndex = 1;
             // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(320, 33);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(69, 20);
-            this.label9.TabIndex = 27;
-            this.label9.Text = "Lớp học";
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.txtlophs);
-            this.groupBox4.Controls.Add(this.label4);
-            this.groupBox4.Controls.Add(this.btnsua);
-            this.groupBox4.Controls.Add(this.btnTimKiem);
-            this.groupBox4.Controls.Add(this.btnxoa);
-            this.groupBox4.Controls.Add(this.label9);
-            this.groupBox4.Controls.Add(this.txthocsinh);
-            this.groupBox4.Controls.Add(this.btnthem);
-            this.groupBox4.Controls.Add(this.label3);
-            this.groupBox4.Controls.Add(this.dateTimePicker1);
-            this.groupBox4.Location = new System.Drawing.Point(366, 26);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(599, 220);
-            this.groupBox4.TabIndex = 3;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Thông tin học sinh";
-            // 
-            // txtlophs
-            // 
-            this.txtlophs.Location = new System.Drawing.Point(453, 33);
-            this.txtlophs.Name = "txtlophs";
-            this.txtlophs.Size = new System.Drawing.Size(135, 22);
-            this.txtlophs.TabIndex = 28;
-            // 
-            // cblopcn
-            // 
-            this.cblopcn.FormattingEnabled = true;
-            this.cblopcn.Items.AddRange(new object[] {
-            "12A1",
-            "12A2"});
-            this.cblopcn.Location = new System.Drawing.Point(158, 34);
-            this.cblopcn.Name = "cblopcn";
-            this.cblopcn.Size = new System.Drawing.Size(135, 24);
-            this.cblopcn.TabIndex = 27;
-            // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "tenlop";
-            this.Column1.HeaderText = "Tên lớp";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            this.Column1.Width = 75;
-            // 
-            // Column2
-            // 
-            this.Column2.DataPropertyName = "tengv";
-            this.Column2.HeaderText = "GVCN";
-            this.Column2.MinimumWidth = 6;
-            this.Column2.Name = "Column2";
-            this.Column2.Width = 125;
-            // 
             // Column3
             // 
             this.Column3.DataPropertyName = "tenhs";
@@ -309,6 +273,46 @@
             this.Column4.MinimumWidth = 6;
             this.Column4.Name = "Column4";
             this.Column4.Width = 125;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(320, 33);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(69, 20);
+            this.label9.TabIndex = 27;
+            this.label9.Text = "Lớp học";
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.comboBox1);
+            this.groupBox4.Controls.Add(this.label4);
+            this.groupBox4.Controls.Add(this.btnsua);
+            this.groupBox4.Controls.Add(this.btnTimKiem);
+            this.groupBox4.Controls.Add(this.btnxoa);
+            this.groupBox4.Controls.Add(this.label9);
+            this.groupBox4.Controls.Add(this.txthocsinh);
+            this.groupBox4.Controls.Add(this.btnthem);
+            this.groupBox4.Controls.Add(this.label3);
+            this.groupBox4.Controls.Add(this.dateTimePicker1);
+            this.groupBox4.Location = new System.Drawing.Point(366, 26);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(599, 220);
+            this.groupBox4.TabIndex = 3;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Thông tin học sinh";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "12A1",
+            "12A2"});
+            this.comboBox1.Location = new System.Drawing.Point(430, 29);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(133, 24);
+            this.comboBox1.TabIndex = 28;
             // 
             // fLop
             // 
@@ -354,11 +358,11 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.ComboBox cblopcn;
-        private System.Windows.Forms.TextBox txtlophs;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }
