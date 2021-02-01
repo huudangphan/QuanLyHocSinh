@@ -1,53 +1,58 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="QuanLyHocSinhModelStoreContainer" CdmEntityContainer="QuanLyHocSinhEntities">
-    <EntitySetMapping Name="BangDiems">
-      <EntityTypeMapping TypeName="QuanLyHocSinhModel.BangDiem">
-        <MappingFragment StoreEntitySet="BangDiem">
-          <ScalarProperty Name="idbangDiem" ColumnName="idbangDiem" />
-          <ScalarProperty Name="idmonHoc" ColumnName="idmonHoc" />
-          <ScalarProperty Name="idhocSinh" ColumnName="idhocSinh" />
-          <ScalarProperty Name="diem" ColumnName="diem" />
+  <EntityContainerMapping StorageEntityContainer="QLHocSinhModelStoreContainer" CdmEntityContainer="QLHocSinhEntities">
+    <EntitySetMapping Name="Diems">
+      <EntityTypeMapping TypeName="QLHocSinhModel.Diem">
+        <MappingFragment StoreEntitySet="Diem">
+          <ScalarProperty Name="idbangdiem" ColumnName="idbangdiem" />
+          <ScalarProperty Name="idmon" ColumnName="idmon" />
+          <ScalarProperty Name="idhocsinh" ColumnName="idhocsinh" />
+          <ScalarProperty Name="diem1" ColumnName="diem" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="GiaoViens">
-      <EntityTypeMapping TypeName="QuanLyHocSinhModel.GiaoVien">
-        <MappingFragment StoreEntitySet="GiaoVien">
-          <ScalarProperty Name="idgiaoVien" ColumnName="idgiaoVien" />
-          <ScalarProperty Name="tengiaoVien" ColumnName="tengiaoVien" />
+    <EntitySetMapping Name="giaoviens">
+      <EntityTypeMapping TypeName="QLHocSinhModel.giaovien">
+        <MappingFragment StoreEntitySet="giaovien">
+          <ScalarProperty Name="idgv" ColumnName="idgv" />
+          <ScalarProperty Name="tengv" ColumnName="tengv" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="HocSinhs">
-      <EntityTypeMapping TypeName="QuanLyHocSinhModel.HocSinh">
-        <MappingFragment StoreEntitySet="HocSinh">
-          <ScalarProperty Name="idHocSinh" ColumnName="idHocSinh" />
-          <ScalarProperty Name="ten" ColumnName="ten" />
-          <ScalarProperty Name="ngaySinh" ColumnName="ngaySinh" />
-          <ScalarProperty Name="diachi" ColumnName="diachi" />
-          <ScalarProperty Name="sdt" ColumnName="sdt" />
-          <ScalarProperty Name="lop" ColumnName="lop" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="LopHocs">
-      <EntityTypeMapping TypeName="QuanLyHocSinhModel.LopHoc">
-        <MappingFragment StoreEntitySet="LopHoc">
+    <EntitySetMapping Name="hocsinhs">
+      <EntityTypeMapping TypeName="QLHocSinhModel.hocsinh">
+        <MappingFragment StoreEntitySet="hocsinh">
           <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="idhocSinh" ColumnName="idhocSinh" />
-          <ScalarProperty Name="tenlop" ColumnName="tenlop" />
-          <ScalarProperty Name="idchuNhiem" ColumnName="idchuNhiem" />
-          <ScalarProperty Name="nienkhoa" ColumnName="nienkhoa" />
-          <ScalarProperty Name="hocki" ColumnName="hocki" />
+          <ScalarProperty Name="tenhs" ColumnName="tenhs" />
+          <ScalarProperty Name="lop" ColumnName="lop" />
+          <ScalarProperty Name="ngaysinh" ColumnName="ngaysinh" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="MonHocs">
-      <EntityTypeMapping TypeName="QuanLyHocSinhModel.MonHoc">
-        <MappingFragment StoreEntitySet="MonHoc">
-          <ScalarProperty Name="idmonHoc" ColumnName="idmonHoc" />
-          <ScalarProperty Name="tenMonHoc" ColumnName="tenMonHoc" />
+    <EntitySetMapping Name="Lops">
+      <EntityTypeMapping TypeName="QLHocSinhModel.Lop">
+        <MappingFragment StoreEntitySet="Lop">
+          <ScalarProperty Name="tenlop" ColumnName="tenlop" />
+          <ScalarProperty Name="idgvcn" ColumnName="idgvcn" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="monhocs">
+      <EntityTypeMapping TypeName="QLHocSinhModel.monhoc">
+        <MappingFragment StoreEntitySet="monhoc">
+          <ScalarProperty Name="idmon" ColumnName="idmon" />
+          <ScalarProperty Name="tenmon" ColumnName="tenmon" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="QLHocSinhModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

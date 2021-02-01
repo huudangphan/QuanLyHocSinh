@@ -13,7 +13,8 @@ namespace QuanLyHocSinh
     public partial class fLop : Form
     {
 
-        QuanLyHocSinhEntities db = new QuanLyHocSinhEntities();
+        QLHocSinhEntities db = new QLHocSinhEntities();
+
         public fLop()
         {
             InitializeComponent();
@@ -22,24 +23,55 @@ namespace QuanLyHocSinh
         }
         void addBinding()
         {
-            txtlop.DataBindings.Add(new Binding("text", dataGridView1.DataSource, "tenLop",true,DataSourceUpdateMode.Never));
-            txtchunhiem.DataBindings.Add(new Binding("text", dataGridView1.DataSource, "tengiaoVien", true, DataSourceUpdateMode.Never));
-            txthocsinh.DataBindings.Add(new Binding("text", dataGridView2.DataSource, "ten", true, DataSourceUpdateMode.Never));
+            txtlophs.DataBindings.Add(new Binding("text", datagridview2.DataSource, "lop",true,DataSourceUpdateMode.Never));
+            txthocsinh.DataBindings.Add(new Binding("text", datagridview2.DataSource, "tenhs", true, DataSourceUpdateMode.Never));
+            cblopcn.DataBindings.Add(new Binding("text", dataGridView1.DataSource, "tenlop", true, DataSourceUpdateMode.Never));
+            txtchunhiem.DataBindings.Add(new Binding("text", dataGridView1.DataSource, "tengv", true, DataSourceUpdateMode.Never));
+
+            dateTimePicker1.DataBindings.Add(new Binding("Value", datagridview2.DataSource, "ngaySinh", true, DataSourceUpdateMode.Never));
         }
         void loadData()
         {
-            var result = (from c in db.LopHocs
+            var result = (from c in db.Lops
 
-                          select new { c.tenlop,c.GiaoVien.tengiaoVien}).Distinct();
-
-
-
-            
+                          select new { c.tenlop,c.giaovien.tengv}).Distinct();            
             dataGridView1.DataSource = result.ToList();
-            var result2 = from c in db.HocSinhs
-                          select new { c.ten, c.ngaySinh, c.diachi, c.sdt, c.lop };
-            dataGridView2.DataSource = result2.ToList();
+            var result2 = from c in db.hocsinhs
+                          select new { c.tenhs,c.lop,c.ngaysinh};
+            datagridview2.DataSource = result2.ToList();
+
         }
+       
+        void addhs()
+        {
+            DateTime date = dateTimePicker1.Value;            
+           
+            try
+            {
+                hocsinh hs = new hocsinh() { tenhs = txthocsinh.Text, lop = txtlophs.Text, ngaysinh = date };
+                db.hocsinhs.Add(hs);
+                db.SaveChanges();
+
+                db.SaveChanges();
+            }
+            catch
+            {
+                
+            }
+           
+        }
+        void addlop()
+        {
+           
+           
+        }
+
+        void edit()
+        {
+
+        }
+        void delete() { }
+
 
 
         private void button5_Click(object sender, EventArgs e)
@@ -47,9 +79,31 @@ namespace QuanLyHocSinh
 
         }
 
-        private void groupBox2_Enter(object sender, EventArgs e)
+        
+
+        private void btnthem_Click(object sender, EventArgs e)
+        {
+            addhs();
+            loadData();
+          
+            MessageBox.Show("Them hoc sinh thanh cong");
+        }
+
+        private void btnsua_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnxoa_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnthemlop_Click(object sender, EventArgs e)
+        {
+            addlop();
+            loadData();
+            MessageBox.Show("Chia lop thanh cong");
         }
     }
 }

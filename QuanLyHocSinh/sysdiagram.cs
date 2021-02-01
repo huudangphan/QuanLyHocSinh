@@ -12,16 +12,12 @@ namespace QuanLyHocSinh
     using System;
     using System.Collections.Generic;
     
-    public partial class LopHoc
+    public partial class sysdiagram
     {
-        public int id { get; set; }
-        public Nullable<int> idhocSinh { get; set; }
-        public string tenlop { get; set; }
-        public Nullable<int> idchuNhiem { get; set; }
-        public string nienkhoa { get; set; }
-        public Nullable<int> hocki { get; set; }
-    
-        public virtual GiaoVien GiaoVien { get; set; }
-        public virtual HocSinh HocSinh { get; set; }
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public int diagram_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }

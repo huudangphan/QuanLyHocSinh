@@ -13,10 +13,10 @@ namespace QuanLyHocSinh
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class QuanLyHocSinhEntities : DbContext
+    public partial class QLHocSinhEntities : DbContext
     {
-        public QuanLyHocSinhEntities()
-            : base("name=QuanLyHocSinhEntities")
+        public QLHocSinhEntities()
+            : base("name=QLHocSinhEntities")
         {
         }
     
@@ -25,10 +25,11 @@ namespace QuanLyHocSinh
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<BangDiem> BangDiems { get; set; }
-        public virtual DbSet<GiaoVien> GiaoViens { get; set; }
-        public virtual DbSet<HocSinh> HocSinhs { get; set; }
-        public virtual DbSet<LopHoc> LopHocs { get; set; }
-        public virtual DbSet<MonHoc> MonHocs { get; set; }
+        public virtual DbSet<Diem> Diems { get; set; }
+        public virtual DbSet<giaovien> giaoviens { get; set; }
+        public virtual DbSet<hocsinh> hocsinhs { get; set; }
+        public virtual DbSet<Lop> Lops { get; set; }
+        public virtual DbSet<monhoc> monhocs { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
     }
 }

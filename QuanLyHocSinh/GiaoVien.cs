@@ -12,18 +12,18 @@ namespace QuanLyHocSinh
     using System;
     using System.Collections.Generic;
     
-    public partial class GiaoVien
+    public partial class giaovien
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public GiaoVien()
+        public giaovien()
         {
-            this.LopHocs = new HashSet<LopHoc>();
+            this.Lops = new HashSet<Lop>();
         }
     
-        public int idgiaoVien { get; set; }
-        public string tengiaoVien { get; set; }
+        public int idgv { get; set; }
+        public string tengv { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<LopHoc> LopHocs { get; set; }
+        public virtual ICollection<Lop> Lops { get; set; }
     }
 }

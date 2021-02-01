@@ -1,119 +1,124 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="QuanLyHocSinhModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-  <EntityType Name="BangDiem">
+<Schema Namespace="QLHocSinhModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Diem">
     <Key>
-      <PropertyRef Name="idbangDiem" />
+      <PropertyRef Name="idbangdiem" />
     </Key>
-    <Property Name="idbangDiem" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="idmonHoc" Type="nchar" MaxLength="10" />
-    <Property Name="idhocSinh" Type="int" />
+    <Property Name="idbangdiem" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idmon" Type="nchar" MaxLength="10" />
+    <Property Name="idhocsinh" Type="int" />
     <Property Name="diem" Type="int" />
   </EntityType>
-  <EntityType Name="GiaoVien">
+  <EntityType Name="giaovien">
     <Key>
-      <PropertyRef Name="idgiaoVien" />
+      <PropertyRef Name="idgv" />
     </Key>
-    <Property Name="idgiaoVien" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="tengiaoVien" Type="nchar" MaxLength="50" />
+    <Property Name="idgv" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tengv" Type="nchar" MaxLength="50" />
   </EntityType>
-  <EntityType Name="HocSinh">
-    <Key>
-      <PropertyRef Name="idHocSinh" />
-    </Key>
-    <Property Name="idHocSinh" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="ten" Type="nchar" MaxLength="50" />
-    <Property Name="ngaySinh" Type="date" />
-    <Property Name="diachi" Type="nvarchar" MaxLength="50" />
-    <Property Name="sdt" Type="int" />
-    <Property Name="lop" Type="nvarchar" MaxLength="50" />
-  </EntityType>
-  <EntityType Name="LopHoc">
+  <EntityType Name="hocsinh">
     <Key>
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="idhocSinh" Type="int" />
-    <Property Name="tenlop" Type="nvarchar" MaxLength="50" />
-    <Property Name="idchuNhiem" Type="int" />
-    <Property Name="nienkhoa" Type="nvarchar" MaxLength="50" />
-    <Property Name="hocki" Type="int" />
+    <Property Name="tenhs" Type="nchar" MaxLength="50" />
+    <Property Name="lop" Type="nvarchar" MaxLength="50" />
+    <Property Name="ngaysinh" Type="date" />
   </EntityType>
-  <EntityType Name="MonHoc">
+  <EntityType Name="Lop">
     <Key>
-      <PropertyRef Name="idmonHoc" />
+      <PropertyRef Name="tenlop" />
     </Key>
-    <Property Name="idmonHoc" Type="nchar" MaxLength="10" Nullable="false" />
-    <Property Name="tenMonHoc" Type="nchar" MaxLength="10" />
+    <Property Name="tenlop" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="idgvcn" Type="int" />
   </EntityType>
-  <Association Name="FK_BangDiem_HocSinh">
-    <End Role="HocSinh" Type="Self.HocSinh" Multiplicity="0..1" />
-    <End Role="BangDiem" Type="Self.BangDiem" Multiplicity="*" />
+  <EntityType Name="monhoc">
+    <Key>
+      <PropertyRef Name="idmon" />
+    </Key>
+    <Property Name="idmon" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="tenmon" Type="nchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <Association Name="FK_Diem_hocsinh">
+    <End Role="hocsinh" Type="Self.hocsinh" Multiplicity="0..1" />
+    <End Role="Diem" Type="Self.Diem" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="HocSinh">
-        <PropertyRef Name="idHocSinh" />
+      <Principal Role="hocsinh">
+        <PropertyRef Name="id" />
       </Principal>
-      <Dependent Role="BangDiem">
-        <PropertyRef Name="idhocSinh" />
+      <Dependent Role="Diem">
+        <PropertyRef Name="idhocsinh" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_BangDiem_MonHoc">
-    <End Role="MonHoc" Type="Self.MonHoc" Multiplicity="0..1" />
-    <End Role="BangDiem" Type="Self.BangDiem" Multiplicity="*" />
+  <Association Name="FK_Diem_monhoc">
+    <End Role="monhoc" Type="Self.monhoc" Multiplicity="0..1" />
+    <End Role="Diem" Type="Self.Diem" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="MonHoc">
-        <PropertyRef Name="idmonHoc" />
+      <Principal Role="monhoc">
+        <PropertyRef Name="idmon" />
       </Principal>
-      <Dependent Role="BangDiem">
-        <PropertyRef Name="idmonHoc" />
+      <Dependent Role="Diem">
+        <PropertyRef Name="idmon" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_LopHoc_GiaoVien">
-    <End Role="GiaoVien" Type="Self.GiaoVien" Multiplicity="0..1" />
-    <End Role="LopHoc" Type="Self.LopHoc" Multiplicity="*" />
+  <Association Name="FK_hocsinh_Lop">
+    <End Role="Lop" Type="Self.Lop" Multiplicity="0..1" />
+    <End Role="hocsinh" Type="Self.hocsinh" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="GiaoVien">
-        <PropertyRef Name="idgiaoVien" />
+      <Principal Role="Lop">
+        <PropertyRef Name="tenlop" />
       </Principal>
-      <Dependent Role="LopHoc">
-        <PropertyRef Name="idchuNhiem" />
+      <Dependent Role="hocsinh">
+        <PropertyRef Name="lop" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_LopHoc_HocSinh">
-    <End Role="HocSinh" Type="Self.HocSinh" Multiplicity="0..1" />
-    <End Role="LopHoc" Type="Self.LopHoc" Multiplicity="*" />
+  <Association Name="FK_Lop_giaovien">
+    <End Role="giaovien" Type="Self.giaovien" Multiplicity="0..1" />
+    <End Role="Lop" Type="Self.Lop" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="HocSinh">
-        <PropertyRef Name="idHocSinh" />
+      <Principal Role="giaovien">
+        <PropertyRef Name="idgv" />
       </Principal>
-      <Dependent Role="LopHoc">
-        <PropertyRef Name="idhocSinh" />
+      <Dependent Role="Lop">
+        <PropertyRef Name="idgvcn" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="QuanLyHocSinhModelStoreContainer">
-    <EntitySet Name="BangDiem" EntityType="Self.BangDiem" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="GiaoVien" EntityType="Self.GiaoVien" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="HocSinh" EntityType="Self.HocSinh" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="LopHoc" EntityType="Self.LopHoc" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="MonHoc" EntityType="Self.MonHoc" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK_BangDiem_HocSinh" Association="Self.FK_BangDiem_HocSinh">
-      <End Role="HocSinh" EntitySet="HocSinh" />
-      <End Role="BangDiem" EntitySet="BangDiem" />
+  <EntityContainer Name="QLHocSinhModelStoreContainer">
+    <EntitySet Name="Diem" EntityType="Self.Diem" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="giaovien" EntityType="Self.giaovien" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="hocsinh" EntityType="Self.hocsinh" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Lop" EntityType="Self.Lop" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="monhoc" EntityType="Self.monhoc" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Diem_hocsinh" Association="Self.FK_Diem_hocsinh">
+      <End Role="hocsinh" EntitySet="hocsinh" />
+      <End Role="Diem" EntitySet="Diem" />
     </AssociationSet>
-    <AssociationSet Name="FK_BangDiem_MonHoc" Association="Self.FK_BangDiem_MonHoc">
-      <End Role="MonHoc" EntitySet="MonHoc" />
-      <End Role="BangDiem" EntitySet="BangDiem" />
+    <AssociationSet Name="FK_Diem_monhoc" Association="Self.FK_Diem_monhoc">
+      <End Role="monhoc" EntitySet="monhoc" />
+      <End Role="Diem" EntitySet="Diem" />
     </AssociationSet>
-    <AssociationSet Name="FK_LopHoc_GiaoVien" Association="Self.FK_LopHoc_GiaoVien">
-      <End Role="GiaoVien" EntitySet="GiaoVien" />
-      <End Role="LopHoc" EntitySet="LopHoc" />
+    <AssociationSet Name="FK_hocsinh_Lop" Association="Self.FK_hocsinh_Lop">
+      <End Role="Lop" EntitySet="Lop" />
+      <End Role="hocsinh" EntitySet="hocsinh" />
     </AssociationSet>
-    <AssociationSet Name="FK_LopHoc_HocSinh" Association="Self.FK_LopHoc_HocSinh">
-      <End Role="HocSinh" EntitySet="HocSinh" />
-      <End Role="LopHoc" EntitySet="LopHoc" />
+    <AssociationSet Name="FK_Lop_giaovien" Association="Self.FK_Lop_giaovien">
+      <End Role="giaovien" EntitySet="giaovien" />
+      <End Role="Lop" EntitySet="Lop" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

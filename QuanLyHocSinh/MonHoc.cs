@@ -12,18 +12,18 @@ namespace QuanLyHocSinh
     using System;
     using System.Collections.Generic;
     
-    public partial class MonHoc
+    public partial class monhoc
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public MonHoc()
+        public monhoc()
         {
-            this.BangDiems = new HashSet<BangDiem>();
+            this.Diems = new HashSet<Diem>();
         }
     
-        public string idmonHoc { get; set; }
-        public string tenMonHoc { get; set; }
+        public string idmon { get; set; }
+        public string tenmon { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<BangDiem> BangDiems { get; set; }
+        public virtual ICollection<Diem> Diems { get; set; }
     }
 }

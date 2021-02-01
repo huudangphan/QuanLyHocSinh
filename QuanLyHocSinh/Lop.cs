@@ -12,21 +12,19 @@ namespace QuanLyHocSinh
     using System;
     using System.Collections.Generic;
     
-    public partial class hocsinh
+    public partial class Lop
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public hocsinh()
+        public Lop()
         {
-            this.Diems = new HashSet<Diem>();
+            this.hocsinhs = new HashSet<hocsinh>();
         }
     
-        public int id { get; set; }
-        public string tenhs { get; set; }
-        public string lop { get; set; }
-        public Nullable<System.DateTime> ngaysinh { get; set; }
+        public string tenlop { get; set; }
+        public Nullable<int> idgvcn { get; set; }
     
+        public virtual giaovien giaovien { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Diem> Diems { get; set; }
-        public virtual Lop Lop1 { get; set; }
+        public virtual ICollection<hocsinh> hocsinhs { get; set; }
     }
 }
