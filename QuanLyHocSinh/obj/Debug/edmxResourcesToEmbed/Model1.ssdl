@@ -1,13 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="QLHocSinhModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-  <EntityType Name="Diem">
+  <EntityType Name="bangdiemhs">
     <Key>
-      <PropertyRef Name="idbangdiem" />
+      <PropertyRef Name="id" />
     </Key>
-    <Property Name="idbangdiem" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="idmon" Type="nchar" MaxLength="10" />
-    <Property Name="idhocsinh" Type="int" />
-    <Property Name="diem" Type="int" />
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idhs" Type="int" />
+    <Property Name="toan" Type="int" />
+    <Property Name="ly" Type="int" />
+    <Property Name="hoa" Type="int" />
+    <Property Name="sinh" Type="int" />
+    <Property Name="van" Type="int" />
+    <Property Name="su" Type="int" />
+    <Property Name="dia" Type="int" />
+    <Property Name="gdcd" Type="int" />
+    <Property Name="tin" Type="int" />
   </EntityType>
   <EntityType Name="giaovien">
     <Key>
@@ -32,13 +39,6 @@
     <Property Name="tenlop" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="idgvcn" Type="int" />
   </EntityType>
-  <EntityType Name="monhoc">
-    <Key>
-      <PropertyRef Name="idmon" />
-    </Key>
-    <Property Name="idmon" Type="nchar" MaxLength="10" Nullable="false" />
-    <Property Name="tenmon" Type="nchar" MaxLength="10" />
-  </EntityType>
   <EntityType Name="sysdiagrams">
     <Key>
       <PropertyRef Name="diagram_id" />
@@ -49,27 +49,15 @@
     <Property Name="version" Type="int" />
     <Property Name="definition" Type="varbinary(max)" />
   </EntityType>
-  <Association Name="FK_Diem_hocsinh">
+  <Association Name="FK_bangdiemhs_hocsinh">
     <End Role="hocsinh" Type="Self.hocsinh" Multiplicity="0..1" />
-    <End Role="Diem" Type="Self.Diem" Multiplicity="*" />
+    <End Role="bangdiemhs" Type="Self.bangdiemhs" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="hocsinh">
         <PropertyRef Name="id" />
       </Principal>
-      <Dependent Role="Diem">
-        <PropertyRef Name="idhocsinh" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Diem_monhoc">
-    <End Role="monhoc" Type="Self.monhoc" Multiplicity="0..1" />
-    <End Role="Diem" Type="Self.Diem" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="monhoc">
-        <PropertyRef Name="idmon" />
-      </Principal>
-      <Dependent Role="Diem">
-        <PropertyRef Name="idmon" />
+      <Dependent Role="bangdiemhs">
+        <PropertyRef Name="idhs" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -98,19 +86,14 @@
     </ReferentialConstraint>
   </Association>
   <EntityContainer Name="QLHocSinhModelStoreContainer">
-    <EntitySet Name="Diem" EntityType="Self.Diem" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="bangdiemhs" EntityType="Self.bangdiemhs" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="giaovien" EntityType="Self.giaovien" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="hocsinh" EntityType="Self.hocsinh" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Lop" EntityType="Self.Lop" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="monhoc" EntityType="Self.monhoc" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK_Diem_hocsinh" Association="Self.FK_Diem_hocsinh">
+    <AssociationSet Name="FK_bangdiemhs_hocsinh" Association="Self.FK_bangdiemhs_hocsinh">
       <End Role="hocsinh" EntitySet="hocsinh" />
-      <End Role="Diem" EntitySet="Diem" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Diem_monhoc" Association="Self.FK_Diem_monhoc">
-      <End Role="monhoc" EntitySet="monhoc" />
-      <End Role="Diem" EntitySet="Diem" />
+      <End Role="bangdiemhs" EntitySet="bangdiemhs" />
     </AssociationSet>
     <AssociationSet Name="FK_hocsinh_Lop" Association="Self.FK_hocsinh_Lop">
       <End Role="Lop" EntitySet="Lop" />

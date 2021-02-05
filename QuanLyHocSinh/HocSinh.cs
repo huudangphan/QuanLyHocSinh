@@ -17,7 +17,7 @@ namespace QuanLyHocSinh
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public hocsinh()
         {
-            this.Diems = new HashSet<Diem>();
+            this.bangdiemhs = new HashSet<bangdiemh>();
         }
     
         public int id { get; set; }
@@ -26,7 +26,7 @@ namespace QuanLyHocSinh
         public Nullable<System.DateTime> ngaysinh { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Diem> Diems { get; set; }
+        public virtual ICollection<bangdiemh> bangdiemhs { get; set; }
         public virtual Lop Lop1 { get; set; }
     }
 }

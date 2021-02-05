@@ -1,13 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="QLHocSinhModelStoreContainer" CdmEntityContainer="QLHocSinhEntities">
-    <EntitySetMapping Name="Diems">
-      <EntityTypeMapping TypeName="QLHocSinhModel.Diem">
-        <MappingFragment StoreEntitySet="Diem">
-          <ScalarProperty Name="idbangdiem" ColumnName="idbangdiem" />
-          <ScalarProperty Name="idmon" ColumnName="idmon" />
-          <ScalarProperty Name="idhocsinh" ColumnName="idhocsinh" />
-          <ScalarProperty Name="diem1" ColumnName="diem" />
+    <EntitySetMapping Name="bangdiemhs">
+      <EntityTypeMapping TypeName="QLHocSinhModel.bangdiemh">
+        <MappingFragment StoreEntitySet="bangdiemhs">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="idhs" ColumnName="idhs" />
+          <ScalarProperty Name="toan" ColumnName="toan" />
+          <ScalarProperty Name="ly" ColumnName="ly" />
+          <ScalarProperty Name="hoa" ColumnName="hoa" />
+          <ScalarProperty Name="sinh" ColumnName="sinh" />
+          <ScalarProperty Name="van" ColumnName="van" />
+          <ScalarProperty Name="su" ColumnName="su" />
+          <ScalarProperty Name="dia" ColumnName="dia" />
+          <ScalarProperty Name="gdcd" ColumnName="gdcd" />
+          <ScalarProperty Name="tin" ColumnName="tin" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -34,14 +41,6 @@
         <MappingFragment StoreEntitySet="Lop">
           <ScalarProperty Name="tenlop" ColumnName="tenlop" />
           <ScalarProperty Name="idgvcn" ColumnName="idgvcn" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="monhocs">
-      <EntityTypeMapping TypeName="QLHocSinhModel.monhoc">
-        <MappingFragment StoreEntitySet="monhoc">
-          <ScalarProperty Name="idmon" ColumnName="idmon" />
-          <ScalarProperty Name="tenmon" ColumnName="tenmon" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

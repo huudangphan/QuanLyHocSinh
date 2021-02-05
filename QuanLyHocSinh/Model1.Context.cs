@@ -25,11 +25,10 @@ namespace QuanLyHocSinh
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Diem> Diems { get; set; }
+        public virtual DbSet<bangdiemh> bangdiemhs { get; set; }
         public virtual DbSet<giaovien> giaoviens { get; set; }
         public virtual DbSet<hocsinh> hocsinhs { get; set; }
         public virtual DbSet<Lop> Lops { get; set; }
-        public virtual DbSet<monhoc> monhocs { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
     }
 }

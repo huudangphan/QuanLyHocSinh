@@ -16,5 +16,17 @@ namespace QuanLyHocSinh
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            fLop f = new fLop();
+            f.Show();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            fHocSinh f = new fHocSinh();
+            f.Show();
+        }
     }
 }

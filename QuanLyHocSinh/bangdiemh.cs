@@ -12,14 +12,20 @@ namespace QuanLyHocSinh
     using System;
     using System.Collections.Generic;
     
-    public partial class Diem
+    public partial class bangdiemh
     {
-        public int idbangdiem { get; set; }
-        public string idmon { get; set; }
-        public Nullable<int> idhocsinh { get; set; }
-        public Nullable<int> diem1 { get; set; }
+        public int id { get; set; }
+        public Nullable<int> idhs { get; set; }
+        public Nullable<int> toan { get; set; }
+        public Nullable<int> ly { get; set; }
+        public Nullable<int> hoa { get; set; }
+        public Nullable<int> sinh { get; set; }
+        public Nullable<int> van { get; set; }
+        public Nullable<int> su { get; set; }
+        public Nullable<int> dia { get; set; }
+        public Nullable<int> gdcd { get; set; }
+        public Nullable<int> tin { get; set; }
     
         public virtual hocsinh hocsinh { get; set; }
-        public virtual monhoc monhoc { get; set; }
     }
 }

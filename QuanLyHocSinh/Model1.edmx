@@ -5,14 +5,21 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
       <Schema Namespace="QLHocSinhModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="Diem">
+        <EntityType Name="bangdiemhs">
           <Key>
-            <PropertyRef Name="idbangdiem" />
+            <PropertyRef Name="id" />
           </Key>
-          <Property Name="idbangdiem" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="idmon" Type="nchar" MaxLength="10" />
-          <Property Name="idhocsinh" Type="int" />
-          <Property Name="diem" Type="int" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idhs" Type="int" />
+          <Property Name="toan" Type="int" />
+          <Property Name="ly" Type="int" />
+          <Property Name="hoa" Type="int" />
+          <Property Name="sinh" Type="int" />
+          <Property Name="van" Type="int" />
+          <Property Name="su" Type="int" />
+          <Property Name="dia" Type="int" />
+          <Property Name="gdcd" Type="int" />
+          <Property Name="tin" Type="int" />
         </EntityType>
         <EntityType Name="giaovien">
           <Key>
@@ -37,13 +44,6 @@
           <Property Name="tenlop" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="idgvcn" Type="int" />
         </EntityType>
-        <EntityType Name="monhoc">
-          <Key>
-            <PropertyRef Name="idmon" />
-          </Key>
-          <Property Name="idmon" Type="nchar" MaxLength="10" Nullable="false" />
-          <Property Name="tenmon" Type="nchar" MaxLength="10" />
-        </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
             <PropertyRef Name="diagram_id" />
@@ -54,27 +54,15 @@
           <Property Name="version" Type="int" />
           <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
-        <Association Name="FK_Diem_hocsinh">
+        <Association Name="FK_bangdiemhs_hocsinh">
           <End Role="hocsinh" Type="Self.hocsinh" Multiplicity="0..1" />
-          <End Role="Diem" Type="Self.Diem" Multiplicity="*" />
+          <End Role="bangdiemhs" Type="Self.bangdiemhs" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="hocsinh">
               <PropertyRef Name="id" />
             </Principal>
-            <Dependent Role="Diem">
-              <PropertyRef Name="idhocsinh" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Diem_monhoc">
-          <End Role="monhoc" Type="Self.monhoc" Multiplicity="0..1" />
-          <End Role="Diem" Type="Self.Diem" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="monhoc">
-              <PropertyRef Name="idmon" />
-            </Principal>
-            <Dependent Role="Diem">
-              <PropertyRef Name="idmon" />
+            <Dependent Role="bangdiemhs">
+              <PropertyRef Name="idhs" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -103,19 +91,14 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="QLHocSinhModelStoreContainer">
-          <EntitySet Name="Diem" EntityType="Self.Diem" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="bangdiemhs" EntityType="Self.bangdiemhs" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="giaovien" EntityType="Self.giaovien" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="hocsinh" EntityType="Self.hocsinh" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Lop" EntityType="Self.Lop" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="monhoc" EntityType="Self.monhoc" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_Diem_hocsinh" Association="Self.FK_Diem_hocsinh">
+          <AssociationSet Name="FK_bangdiemhs_hocsinh" Association="Self.FK_bangdiemhs_hocsinh">
             <End Role="hocsinh" EntitySet="hocsinh" />
-            <End Role="Diem" EntitySet="Diem" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Diem_monhoc" Association="Self.FK_Diem_monhoc">
-            <End Role="monhoc" EntitySet="monhoc" />
-            <End Role="Diem" EntitySet="Diem" />
+            <End Role="bangdiemhs" EntitySet="bangdiemhs" />
           </AssociationSet>
           <AssociationSet Name="FK_hocsinh_Lop" Association="Self.FK_hocsinh_Lop">
             <End Role="Lop" EntitySet="Lop" />
@@ -131,16 +114,22 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="QLHocSinhModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="Diem">
+        <EntityType Name="bangdiemh">
           <Key>
-            <PropertyRef Name="idbangdiem" />
+            <PropertyRef Name="id" />
           </Key>
-          <Property Name="idbangdiem" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="idmon" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="idhocsinh" Type="Int32" />
-          <Property Name="diem1" Type="Int32" />
-          <NavigationProperty Name="hocsinh" Relationship="Self.FK_Diem_hocsinh" FromRole="Diem" ToRole="hocsinh" />
-          <NavigationProperty Name="monhoc" Relationship="Self.FK_Diem_monhoc" FromRole="Diem" ToRole="monhoc" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idhs" Type="Int32" />
+          <Property Name="toan" Type="Int32" />
+          <Property Name="ly" Type="Int32" />
+          <Property Name="hoa" Type="Int32" />
+          <Property Name="sinh" Type="Int32" />
+          <Property Name="van" Type="Int32" />
+          <Property Name="su" Type="Int32" />
+          <Property Name="dia" Type="Int32" />
+          <Property Name="gdcd" Type="Int32" />
+          <Property Name="tin" Type="Int32" />
+          <NavigationProperty Name="hocsinh" Relationship="Self.FK_bangdiemhs_hocsinh" FromRole="bangdiemhs" ToRole="hocsinh" />
         </EntityType>
         <EntityType Name="giaovien">
           <Key>
@@ -158,7 +147,7 @@
           <Property Name="tenhs" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
           <Property Name="lop" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="ngaysinh" Type="DateTime" Precision="0" />
-          <NavigationProperty Name="Diems" Relationship="Self.FK_Diem_hocsinh" FromRole="hocsinh" ToRole="Diem" />
+          <NavigationProperty Name="bangdiemhs" Relationship="Self.FK_bangdiemhs_hocsinh" FromRole="hocsinh" ToRole="bangdiemhs" />
           <NavigationProperty Name="Lop1" Relationship="Self.FK_hocsinh_Lop" FromRole="hocsinh" ToRole="Lop" />
         </EntityType>
         <EntityType Name="Lop">
@@ -170,14 +159,6 @@
           <NavigationProperty Name="giaovien" Relationship="Self.FK_Lop_giaovien" FromRole="Lop" ToRole="giaovien" />
           <NavigationProperty Name="hocsinhs" Relationship="Self.FK_hocsinh_Lop" FromRole="Lop" ToRole="hocsinh" />
         </EntityType>
-        <EntityType Name="monhoc">
-          <Key>
-            <PropertyRef Name="idmon" />
-          </Key>
-          <Property Name="idmon" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="tenmon" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <NavigationProperty Name="Diems" Relationship="Self.FK_Diem_monhoc" FromRole="monhoc" ToRole="Diem" />
-        </EntityType>
         <EntityType Name="sysdiagram">
           <Key>
             <PropertyRef Name="diagram_id" />
@@ -188,27 +169,15 @@
           <Property Name="version" Type="Int32" />
           <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
-        <Association Name="FK_Diem_hocsinh">
+        <Association Name="FK_bangdiemhs_hocsinh">
           <End Role="hocsinh" Type="Self.hocsinh" Multiplicity="0..1" />
-          <End Role="Diem" Type="Self.Diem" Multiplicity="*" />
+          <End Role="bangdiemhs" Type="Self.bangdiemh" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="hocsinh">
               <PropertyRef Name="id" />
             </Principal>
-            <Dependent Role="Diem">
-              <PropertyRef Name="idhocsinh" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Diem_monhoc">
-          <End Role="monhoc" Type="Self.monhoc" Multiplicity="0..1" />
-          <End Role="Diem" Type="Self.Diem" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="monhoc">
-              <PropertyRef Name="idmon" />
-            </Principal>
-            <Dependent Role="Diem">
-              <PropertyRef Name="idmon" />
+            <Dependent Role="bangdiemhs">
+              <PropertyRef Name="idhs" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -237,19 +206,14 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="QLHocSinhEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Diems" EntityType="Self.Diem" />
+          <EntitySet Name="bangdiemhs" EntityType="Self.bangdiemh" />
           <EntitySet Name="giaoviens" EntityType="Self.giaovien" />
           <EntitySet Name="hocsinhs" EntityType="Self.hocsinh" />
           <EntitySet Name="Lops" EntityType="Self.Lop" />
-          <EntitySet Name="monhocs" EntityType="Self.monhoc" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
-          <AssociationSet Name="FK_Diem_hocsinh" Association="Self.FK_Diem_hocsinh">
+          <AssociationSet Name="FK_bangdiemhs_hocsinh" Association="Self.FK_bangdiemhs_hocsinh">
             <End Role="hocsinh" EntitySet="hocsinhs" />
-            <End Role="Diem" EntitySet="Diems" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Diem_monhoc" Association="Self.FK_Diem_monhoc">
-            <End Role="monhoc" EntitySet="monhocs" />
-            <End Role="Diem" EntitySet="Diems" />
+            <End Role="bangdiemhs" EntitySet="bangdiemhs" />
           </AssociationSet>
           <AssociationSet Name="FK_Lop_giaovien" Association="Self.FK_Lop_giaovien">
             <End Role="giaovien" EntitySet="giaoviens" />
@@ -266,13 +230,20 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="QLHocSinhModelStoreContainer" CdmEntityContainer="QLHocSinhEntities">
-          <EntitySetMapping Name="Diems">
-            <EntityTypeMapping TypeName="QLHocSinhModel.Diem">
-              <MappingFragment StoreEntitySet="Diem">
-                <ScalarProperty Name="idbangdiem" ColumnName="idbangdiem" />
-                <ScalarProperty Name="idmon" ColumnName="idmon" />
-                <ScalarProperty Name="idhocsinh" ColumnName="idhocsinh" />
-                <ScalarProperty Name="diem1" ColumnName="diem" />
+          <EntitySetMapping Name="bangdiemhs">
+            <EntityTypeMapping TypeName="QLHocSinhModel.bangdiemh">
+              <MappingFragment StoreEntitySet="bangdiemhs">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="idhs" ColumnName="idhs" />
+                <ScalarProperty Name="toan" ColumnName="toan" />
+                <ScalarProperty Name="ly" ColumnName="ly" />
+                <ScalarProperty Name="hoa" ColumnName="hoa" />
+                <ScalarProperty Name="sinh" ColumnName="sinh" />
+                <ScalarProperty Name="van" ColumnName="van" />
+                <ScalarProperty Name="su" ColumnName="su" />
+                <ScalarProperty Name="dia" ColumnName="dia" />
+                <ScalarProperty Name="gdcd" ColumnName="gdcd" />
+                <ScalarProperty Name="tin" ColumnName="tin" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -299,14 +270,6 @@
               <MappingFragment StoreEntitySet="Lop">
                 <ScalarProperty Name="tenlop" ColumnName="tenlop" />
                 <ScalarProperty Name="idgvcn" ColumnName="idgvcn" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="monhocs">
-            <EntityTypeMapping TypeName="QLHocSinhModel.monhoc">
-              <MappingFragment StoreEntitySet="monhoc">
-                <ScalarProperty Name="idmon" ColumnName="idmon" />
-                <ScalarProperty Name="tenmon" ColumnName="tenmon" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

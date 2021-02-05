@@ -4,15 +4,13 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="5016d2ffd87f484fa59428a107c4458a" Name="Diagram1">
-        <EntityTypeShape EntityType="QLHocSinhModel.Diem" Width="1.5" PointX="7.5" PointY="0.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="QLHocSinhModel.giaovien" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="QLHocSinhModel.hocsinh" Width="1.5" PointX="5.25" PointY="0.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="QLHocSinhModel.Lop" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="QLHocSinhModel.monhoc" Width="1.5" PointX="5.25" PointY="5.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="QLHocSinhModel.sysdiagram" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
-        <AssociationConnector Association="QLHocSinhModel.FK_Diem_hocsinh" ManuallyRouted="false" />
-        <AssociationConnector Association="QLHocSinhModel.FK_Diem_monhoc" ManuallyRouted="false" />
+      <Diagram DiagramId="55a71002954c4c639cd7ced7574335e5" Name="Diagram1">
+        <EntityTypeShape EntityType="QLHocSinhModel.bangdiemh" Width="1.5" PointX="7.5" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLHocSinhModel.giaovien" Width="1.5" PointX="0.75" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLHocSinhModel.hocsinh" Width="1.5" PointX="5.25" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLHocSinhModel.Lop" Width="1.5" PointX="3" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLHocSinhModel.sysdiagram" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <AssociationConnector Association="QLHocSinhModel.FK_bangdiemhs_hocsinh" ManuallyRouted="false" />
         <AssociationConnector Association="QLHocSinhModel.FK_Lop_giaovien" ManuallyRouted="false" />
         <AssociationConnector Association="QLHocSinhModel.FK_hocsinh_Lop" ManuallyRouted="false" />
       </Diagram>
