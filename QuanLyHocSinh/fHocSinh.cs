@@ -47,15 +47,39 @@ namespace QuanLyHocSinh
                          where a.idhs == a.hocsinh.id
                          select new { a.hocsinh.lop , a.hocsinh.tenhs, a.toan, a.ly, a.hoa, a.van, a.su, a.dia, a.sinh, a.tin, a.gdcd};
             dataGridView1.DataSource = result.ToList();
+            var result2 = from a in db.hocsinhs
+                          select new { a.Lop1.tenlop, a.id, a.tenhs };
+            dataGridView2.DataSource = result2.ToList();
                        
          
 
 
         }
+        void add()
+        {
+            int toan = Int32.Parse(txttoan.Text);
+            int ly = Int32.Parse(txtly.Text);
+            int hoa = Int32.Parse(txthoa.Text);
+            int sinh = Int32.Parse(txtsinh.Text);
+            int van = Int32.Parse(txtvan.Text);
+            int su = Int32.Parse(txtsu.Text);
+            int dia = Int32.Parse(txtdia.Text);
+            int gdcd = Int32.Parse(txtgdcd.Text);
+            int tin = Int32.Parse(txttin.Text);
+            int id = Int32.Parse(txtidhs.Text);
+            bangdiemh bd = new bangdiemh() { idhs = id, toan = toan, ly = ly, hoa = hoa, van = van, su = su, dia = dia, gdcd = gdcd, tin = tin };
+            db.bangdiemhs.Add(bd);
+            db.SaveChanges();
+        }
 
         private void button2_Click(object sender, EventArgs e)
         {
             
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -34,7 +34,7 @@ namespace QuanLyHocSinh
         {
             var result = (from c in db.Lops
 
-                          select new { c.tenlop,c.giaovien.tengv}).Distinct();            
+                          select new { c.idgvcn,c.tenlop,c.giaovien.tengv}).Distinct();            
             dataGridView1.DataSource = result.ToList();
             var result2 = from c in db.hocsinhs
                           select new { c.tenhs,c.lop,c.ngaysinh,c.id};
@@ -68,7 +68,11 @@ namespace QuanLyHocSinh
 
         void edit()
         {
-
+            int id = Int32.Parse(datagridview2.SelectedCells[0].OwningRow.Cells["id"].Value.ToString());
+            hocsinh hs = db.hocsinhs.Find(id);
+            hs.lop = cblophs.Text;
+            hs.ngaysinh = dateTimePicker1.Value;
+            db.SaveChanges();
         }
         void delete() {
             try {
@@ -84,7 +88,9 @@ namespace QuanLyHocSinh
 
         private void button5_Click(object sender, EventArgs e)
         {
-
+            edit();
+            MessageBox.Show("Sua thanh cong");
+            loadData();
         }
 
         
@@ -99,7 +105,7 @@ namespace QuanLyHocSinh
 
         private void btnsua_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void btnxoa_Click(object sender, EventArgs e)
@@ -109,9 +115,12 @@ namespace QuanLyHocSinh
             loadData();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnTimKiem_Click(object sender, EventArgs e)
         {
-            loadData();
+            var result=from s in db.hocsinhs
+                       where (s.tenhs.Contains(txthocsinh.Text) || s.lop.Contains(cblophs.Text) )
+                       select new { s.tenhs, s.lop, s.ngaysinh, s.id };
+            datagridview2.DataSource = result.ToList();
         }
     }
 }
